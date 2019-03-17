@@ -214,9 +214,13 @@ void main() {
 
 Only deleting one by one is available
 
-```
+```dart
+import 'package:sms_maintained/sms.dart';
+
+void main() {
 SmsRemover smsRemover = SmsRemover();
-<boolean value> = await smsRemover.removeSmsById(sms.id, _smsThread.threadId)
+<boolean value> = await smsRemover.removeSmsById(sms.id, _smsThread.threadId);
+}
 ```
 
 ## Roadmap
