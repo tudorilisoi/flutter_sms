@@ -1,13 +1,14 @@
-![xxhdpi](https://user-images.githubusercontent.com/37498811/41118114-d9cad440-6ab0-11e8-9254-68d6aac245be.png)
-
-# [UNMAINTAINED] This project is unmaintained
-
+# This project is Maintained
 
 # Flutter SMS
 
 This is an SMS library for flutter.
 
-It only support Android for now (I can't do it for iOS because I don't own Mac).
+It only support Android for now. Sms on iOS is not in the scope of this project.
+
+## Extra
+
+I have forked this repository so I can improve and add my own functionality.
 
 ## Getting Started
 
@@ -213,21 +214,21 @@ void main() {
 - [x] SMS Sender
 - [x] SMS Delivery
 - [x] SMS Query
+- [x] SMS delete
 - [x] SMS Thread
-- [ ] MMS Receiver
-- [ ] MMS Sender
-- [ ] MMS Delivery
-- [ ] MMS Query
-- [ ] Multi Sim Card
 - [x] Contact
 - [x] Contact Photo (full size, thumbnail)
 - [x] User profile (basic info)
+
+MMS is not in the scope of this project. If someone wants to add the code and make a merge request for it,
+I am happy to include it.
 
 ## Contributors
 
 - babariviere [github](https://github.com/babariviere)
 - joanpablo [github](https://github.com/joanpablo)
 - saifulfrank [github](https://github.com/saifulfrank)
+- geordyvc [github](https://github.com/geordyvcErasmus)
 
 ### App logo
 Designed and created by [Imrul kayes](https://github.com/saifulfrank)
