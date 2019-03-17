@@ -1,10 +1,10 @@
-# This project is Maintained
+# This project is maintained
 
 # Flutter SMS
 
 This is an SMS library for flutter.
 
-It only support Android for now. Sms on iOS is not in the scope of this project.
+It only support Android for now. iOS and MMS is not in the scope of this project.
 
 ## Extra
 
@@ -228,8 +228,13 @@ SmsRemover smsRemover = SmsRemover();
 - [x] Contact
 - [x] Contact Photo (full size, thumbnail)
 - [x] User profile (basic info)
+- [] Improve speed.
+- [] Add a caching layer.
+- [] Add a helper.
+- [] Add observables so you don't need to manually poll for changes.
 - ...
-MMS is not in the scope of this project. If someone wants to add the code and make a merge request for it,
+
+MMS and iOS is not in the scope of this project. If someone wants to add the code and make a merge request for it,
 I am happy to include it.
 
 If there are requests you can always make an issue. I will see what I can do.
