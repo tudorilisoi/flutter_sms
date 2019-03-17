@@ -2,6 +2,10 @@
 
 Took over from previous owner because he doesn't maintain it anymore. [github](https://github.com/babariviere/flutter_sms)
 
+## Reason I took over
+
+I am making an sms app (that I will be making open source also when it is more stable) and I needed a good package for all the CRUD actions that I need to do with my messages. 
+
 # Flutter SMS
 
 This is an SMS library for flutter.
@@ -212,7 +216,9 @@ void main() {
 
 ## Deleting SMS
 
-Only deleting one by one is available
+Only deleting one by one is available. Don't forget to make your sms app the default sms app.
+[blogpost guide](https://android-developers.googleblog.com/2013/10/getting-your-sms-apps-ready-for-kitkat.html)
+
 
 ```dart
 import 'package:sms_maintained/sms.dart';
