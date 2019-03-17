@@ -560,8 +560,11 @@ class SimCard {
   }
 }
 
+
+//added by Geordy Van Cutsem
 class SmsRemover {
   static const platform = const MethodChannel(METHOD_CHANNEL_REMOVE_SMS);
+
 
   Future<bool> removeSmsById(int id, int threadId) async {
     Map arguments = {};
