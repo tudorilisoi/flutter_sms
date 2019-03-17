@@ -21,13 +21,18 @@ public class SmsPlugin {
     private static final String CHANNEL_QUER_CONT_PHOTO = "plugins.babariviere.com/queryContactPhoto";
     private static final String CHANNEL_USER_PROFILE = "plugins.babariviere.com/userProfile";
     private static final String CHANNEL_SIM_CARDS = "plugins.babariviere.com/simCards";
-
+    private static final String CHANNEL_REMOVE = "geordyvc.sms.remove.channel";
     /**
      * Plugin registration.
      */
     public static void registerWith(Registrar registrar) {
 
         registrar.addRequestPermissionsResultListener(Permissions.getRequestsResultsListener());
+
+        // SMS remover
+        final SmsRemover smsRemover = new SmsRemover(registrar);
+        final MethodChannel removeSmsChannel = new MethodChannel(registrar.messenger(), CHANNEL_REMOVE);
+        removeSmsChannel.setMethodCallHandler(smsRemover);
 
         // SMS receiver
         final SmsReceiver receiver = new SmsReceiver(registrar);

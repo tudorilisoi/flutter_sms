@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:sms/contact.dart';
+import 'package:sms/globals.dart';
 
 typedef OnError(Object error);
 
@@ -556,6 +557,24 @@ class SimCard {
           break;
       }
     }
+  }
+}
+
+class SmsRemover {
+  static const platform = const MethodChannel(METHOD_CHANNEL_REMOVE_SMS);
+
+  Future<bool> removeSmsById(int id) async {
+    Map arguments = {};
+    arguments['id'] = id;
+    bool finalResult;
+    try {
+      final bool result = await platform.invokeMethod('removeSms', arguments);
+      finalResult = result;
+    } catch (e){
+      print(e);
+    }
+
+    return finalResult;
   }
 }
 
