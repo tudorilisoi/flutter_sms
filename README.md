@@ -232,7 +232,7 @@ SmsRemover smsRemover = SmsRemover();
 - [ ] Add a caching layer.
 - [ ] Add a helper.
 - [ ] Add observables so you don't need to manually poll for changes.
-- ...
+- [ ] ...
 
 MMS and iOS is not in the scope of this project. If someone wants to add the code and make a merge request for it,
 I am happy to include it.
