@@ -208,6 +208,15 @@ void main() {
 }
 ```
 
+## Deleting SMS
+
+Only deleting one by one is available
+
+```
+SmsRemover smsRemover = SmsRemover();
+<boolean value> = await smsRemover.removeSmsById(sms.id, _smsThread.threadId)
+```
+
 ## Roadmap
 
 - [x] SMS Receiver
@@ -219,9 +228,11 @@ void main() {
 - [x] Contact
 - [x] Contact Photo (full size, thumbnail)
 - [x] User profile (basic info)
-
+- ...
 MMS is not in the scope of this project. If someone wants to add the code and make a merge request for it,
 I am happy to include it.
+
+If there are requests you can always make an issue. I will see what I can do.
 
 ## Contributors
 
