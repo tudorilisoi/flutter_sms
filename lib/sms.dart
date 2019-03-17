@@ -563,9 +563,10 @@ class SimCard {
 class SmsRemover {
   static const platform = const MethodChannel(METHOD_CHANNEL_REMOVE_SMS);
 
-  Future<bool> removeSmsById(int id) async {
+  Future<bool> removeSmsById(int id, int threadId) async {
     Map arguments = {};
     arguments['id'] = id;
+    arguments['thread_id'] = threadId;
     bool finalResult;
     try {
       final bool result = await platform.invokeMethod('removeSms', arguments);

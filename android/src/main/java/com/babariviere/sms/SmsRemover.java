@@ -25,10 +25,10 @@ public class SmsRemover implements PluginRegistry.RequestPermissionsResultListen
         registrar.addRequestPermissionsResultListener(this);
     }
 
-    private boolean deleteSms(int id) {
+    private boolean deleteSms(int id, int thread_id) {
         Context context = registrar.context();
         try{
-            context.getContentResolver().delete(Uri.parse("content://sms/" + id), null, null);
+            context.getContentResolver().delete(Uri.parse("content://sms"), "thread_id=? and _id=?", new String[]{String.valueOf(thread_id), String.valueOf(id)} );
             Log.i("DELETE-SMS", "deleted sms with id: " + id);
         } catch (Exception e) {
             Log.e(TAG, "deleteSms: id + " + id, e);
@@ -43,7 +43,7 @@ public class SmsRemover implements PluginRegistry.RequestPermissionsResultListen
             case "removeSms":
                 if(methodCall.hasArgument("id")){
                     Log.i("SMSREMOVER", "method called for removing sms: " + methodCall.argument("id") );
-                    result.success(this.deleteSms(Integer.parseInt(methodCall.argument("id").toString())));
+                    result.success(this.deleteSms(Integer.parseInt(methodCall.argument("id").toString()), Integer.parseInt(methodCall.argument("thread_id").toString())));
                 }
         }
 
