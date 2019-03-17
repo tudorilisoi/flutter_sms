@@ -1,5 +1,7 @@
 # This project is maintained
 
+Took over from previous owner because he doesn't maintain it anymore. [github](https://github.com/babariviere/flutter_sms)
+
 # Flutter SMS
 
 This is an SMS library for flutter.
