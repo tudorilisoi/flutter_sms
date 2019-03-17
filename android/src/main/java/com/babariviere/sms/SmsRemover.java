@@ -29,6 +29,7 @@ public class SmsRemover implements PluginRegistry.RequestPermissionsResultListen
         Context context = registrar.context();
         try{
             context.getContentResolver().delete(Uri.parse("content://sms/" + id), null, null);
+            Log.i("DELETE-SMS", "deleted sms with id: " + id);
         } catch (Exception e) {
             Log.e(TAG, "deleteSms: id + " + id, e);
             return false;
@@ -41,6 +42,7 @@ public class SmsRemover implements PluginRegistry.RequestPermissionsResultListen
         switch (methodCall.method){
             case "removeSms":
                 if(methodCall.hasArgument("id")){
+                    Log.i("SMSREMOVER", "method called for removing sms: " + methodCall.argument("id") );
                     result.success(this.deleteSms(Integer.parseInt(methodCall.argument("id").toString())));
                 }
         }
