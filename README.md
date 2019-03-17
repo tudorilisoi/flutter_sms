@@ -236,3 +236,8 @@ Designed and created by [Imrul kayes](https://github.com/saifulfrank)
 ## Contributions
 
 Any contribution is welcome.
+
+## Donations
+
+I'm a student so money isn't pouring in. Feel free to make a donation.
+[PayPal](https://www.paypal.me/GeordyVC)
