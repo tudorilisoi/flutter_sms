@@ -1,3 +1,7 @@
+## [0.2.5] - 2019-03-17
+
+* Add way to remove one message at a time.
+
 ## [0.2.4] - 2018-09-30
 
 * Add fail state
