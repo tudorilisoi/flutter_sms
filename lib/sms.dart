@@ -1,12 +1,12 @@
 /// An SMS library for flutter
-library sms;
+library sms_maintained;
 
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:sms/contact.dart';
-import 'package:sms/globals.dart';
+import 'package:sms_maintained/contact.dart';
+import 'package:sms_maintained/globals.dart';
 
 typedef OnError(Object error);
 
