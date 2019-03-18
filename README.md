@@ -235,11 +235,11 @@ SmsRemover smsRemover = SmsRemover();
 - [x] SMS Sender
 - [x] SMS Delivery
 - [x] SMS Query
-- [x] SMS delete
 - [x] SMS Thread
 - [x] Contact
 - [x] Contact Photo (full size, thumbnail)
 - [x] User profile (basic info)
+- [x] SMS Delete One-by-one
 - [ ] Improve speed.
 - [ ] Add a caching layer.
 - [ ] Add a helper.
