@@ -14,7 +14,9 @@ class ThreadHelper {
 
   List<Function> functionsToNotifyIfThreadChanges;
 
-  ThreadHelper();
+  ThreadHelper(){
+    functionsToNotifyIfThreadChanges = List();
+  }
 
   static Future<ThreadHelper> getObject() async {
     if(_threadHelper == null){
