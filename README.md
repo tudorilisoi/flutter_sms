@@ -225,7 +225,23 @@ import 'package:sms_maintained/sms.dart';
 
 void main() {
 SmsRemover smsRemover = SmsRemover();
-<boolean value> = await smsRemover.removeSmsById(sms.id, _smsThread.threadId);
+bool isRemoved = await smsRemover.removeSmsById(sms.id, _smsThread.threadId);
+}
+```
+
+## Thread helper
+
+This is meant to make it more easy to use this package. This is meant to manage conversation threads.
+
+### Declaration and initialization
+```dart
+import 'package:sms_maintained/thread_helper.dart';
+
+void initState() {
+ ThreadHelper.getObject().then((value) {
+      this.setState(() => this._threadHelper = value);
+      this._threadHelper.addObserverToThreads(threadDataListener());
+    });
 }
 ```
 
