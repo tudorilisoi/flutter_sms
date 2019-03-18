@@ -10,7 +10,7 @@ I am making an sms app (that I will be making open source also when it is more s
 
 This is an SMS library for flutter.
 
-It only support Android for now. iOS and MMS is not in the scope of this project.
+It only support Android. iOS and MMS is not in the scope of this project nor will it ever be.
 
 ## Extra
 
