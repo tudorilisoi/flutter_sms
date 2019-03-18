@@ -1,3 +1,8 @@
+## unversioned
+
+* Changed environment dart sdk to minimum 2.1.0 !!!
+* Added thread_helper.dart
+
 ## [0.2.5] - 2019-03-17
 
 * Add way to remove one message at a time.
