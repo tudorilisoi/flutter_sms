@@ -6,6 +6,9 @@ Took over from previous owner because he doesn't maintain it anymore. [github](h
 
 I am making an sms app (that I will be making open source also when it is more stable) and I needed a good package for all the CRUD actions that I need to do with my messages. 
 
+## Follow the project
+You can follow the project live here:
+[Zenkit](https://public.zenkit.com/collections/iVQ9lqx56/views/J4hm8Prw77?hide=filters,views,workspaceLists)
 # Flutter SMS
 
 This is an SMS library for flutter.
