@@ -8,6 +8,8 @@ import 'package:flutter/services.dart';
 import 'package:sms_maintained/contact.dart';
 import 'package:sms_maintained/globals.dart';
 
+import 'models/contact/contact.dart';
+
 typedef OnError(Object error);
 
 enum SmsMessageState {

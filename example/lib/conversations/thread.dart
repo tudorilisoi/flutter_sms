@@ -1,9 +1,10 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:sms_maintained/contact.dart';
+import 'package:sms_example/conversation/conversation.dart';
+import 'package:sms_maintained/models/contact/userprofile.dart';
 import 'package:sms_maintained/sms.dart';
 
-import '../conversation/conversation.dart';
 import 'avatar.dart';
 import 'badge.dart';
 
@@ -20,7 +21,7 @@ class Thread extends StatelessWidget {
   Widget build(BuildContext context) {
     return new ListTile(
       dense: true,
-      leading: new Avatar(thread.contact.thumbnail, thread.contact.fullName),
+      leading: new Avatar(thread.contact.photo, thread.contact.fullName),
       title: new Text(thread.contact.fullName ?? thread.contact.address),
       subtitle: new Text(
         thread.messages.first.body.trim(),

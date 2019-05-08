@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:sms_maintained/contact.dart';
+import 'package:sms_maintained/models/contact/photo.dart';
 
 import '../utils/colors.dart';
 
