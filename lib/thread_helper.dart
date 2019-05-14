@@ -31,11 +31,11 @@ class ThreadHelper {
   /*
   * Do not forget to have the right permissions or else this is going to fail big time.
   * */
-  Future loadEverything() async{
+  Future<void> loadEverything() async{
     SmsQuery query = new SmsQuery();
     List<SmsThread> allThreadsNormalList = await query.getAllThreads;
-    this.threads = RxList<SmsThread>();
     this.threads.addAll(allThreadsNormalList);
+    this.threads = RxList<SmsThread>();
   }
 
 
