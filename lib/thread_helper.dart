@@ -15,10 +15,9 @@ class ThreadHelper {
 
   ThreadHelper(){}
 
-  static Future<ThreadHelper> getObject() async {
+  static ThreadHelper getObject() {
     if(_threadHelper == null){
       _threadHelper = ThreadHelper();
-      await _threadHelper.loadEverything();
       return _threadHelper;
     }
     else {
@@ -37,6 +36,14 @@ class ThreadHelper {
     this.threads.addAll(allThreadsNormalList);
     print('!!!!!!!!!added all threads!!!!!!!!!1');
   }
+
+  Future<void> loadAllThreads() async {
+    SmsQuery query = new SmsQuery();
+    List<SmsThread> allThreadsNormalList = await query.getAllThreads;
+    this.threads.addAll(allThreadsNormalList);
+    print('!!!!!!!!!added all threads!!!!!!!!!1');
+  }
+
 
 
   Future refreshThreads() async {
