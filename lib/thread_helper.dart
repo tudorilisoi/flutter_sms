@@ -9,7 +9,7 @@ import 'package:observable_ish/observable_ish.dart';
 * you don't have to use this to make use of contact.dart and sms.dart
 * */
 class ThreadHelper {
-  RxList<SmsThread> threads;
+  RxList<SmsThread> threads = RxList<SmsThread>();
   static ThreadHelper _threadHelper;
   SmsReceiver _receiver;
 
