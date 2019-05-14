@@ -11,7 +11,7 @@ import 'package:observable/observable.dart';
 class ThreadHelper {
   ObservableList<SmsThread> threads;
   static ThreadHelper _threadHelper;
-
+  SmsReceiver _receiver;
   List<Function> functionsToNotifyIfThreadChanges;
 
   ThreadHelper(){
@@ -42,11 +42,10 @@ class ThreadHelper {
       this.threads.add(smsThread);
     }
     _threadHelper.threads.changes.listen((data) {
+      print(data);
       for (Function f in _threadHelper.functionsToNotifyIfThreadChanges){
         try {
-
           f();
-
       } catch (e){
         print("Function does not exists:\n" + e);
       }
@@ -76,6 +75,26 @@ class ThreadHelper {
   addObserverToThreads(Function f) {
     this.functionsToNotifyIfThreadChanges.add(f);
   }
+  
+  
+  setReceiver(){
+    this._receiver = SmsReceiver();
+    this._receiver.onSmsReceived.listen((SmsMessage message) async {
+      SmsQuery query = new SmsQuery();
+      SmsThread thread = (await query.queryThreads([message.threadId])).first;
+      this.updateThread(thread);
+    });
+  }
+
+  updateThread(SmsThread thread) {
+    int indexThread = this.threads.indexWhere((x) => x.threadId == thread.threadId);
+    if(indexThread != 0){
+      this.threads.removeAt(indexThread);
+      this.threads.add(thread);
+      this.threads.sort((smsThread1, smsThread2) => smsThread1.messages.last.date.compareTo(smsThread2.messages.last.date));
+    }
+  }
+  
 
 
 

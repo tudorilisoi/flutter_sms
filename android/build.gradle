@@ -29,7 +29,6 @@ android {
 
     defaultConfig {
         minSdkVersion 21
-        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         targetSdkVersion 28
     }
