@@ -91,7 +91,6 @@ class ThreadHelper {
     if(indexThread != 0){
       this.threads.removeAt(indexThread);
       this.threads.add(thread);
-      this.threads.sort((smsThread1, smsThread2) => smsThread1.messages.last.date.compareTo(smsThread2.messages.last.date));
     }
     return thread;
   }
