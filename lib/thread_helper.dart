@@ -82,18 +82,27 @@ class ThreadHelper {
     this._receiver.onSmsReceived.listen((SmsMessage message) async {
       SmsQuery query = new SmsQuery();
       SmsThread thread = (await query.queryThreads([message.threadId])).first;
-      this.updateThread(thread);
+      this.updateThreadWithThread(thread);
     });
   }
 
-  updateThread(SmsThread thread) {
+  updateThreadWithThread(SmsThread thread) {
     int indexThread = this.threads.indexWhere((x) => x.threadId == thread.threadId);
     if(indexThread != 0){
       this.threads.removeAt(indexThread);
       this.threads.add(thread);
       this.threads.sort((smsThread1, smsThread2) => smsThread1.messages.last.date.compareTo(smsThread2.messages.last.date));
     }
+    return thread;
   }
+
+  Future<SmsThread> updateThreadWithId(int id) async {
+    SmsQuery query = new SmsQuery();
+    SmsThread thread = (await query.queryThreads([id])).first;
+    return updateThreadWithThread(thread);
+  }
+
+
   
 
 
