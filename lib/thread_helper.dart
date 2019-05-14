@@ -34,8 +34,9 @@ class ThreadHelper {
   Future<void> loadEverything() async{
     SmsQuery query = new SmsQuery();
     List<SmsThread> allThreadsNormalList = await query.getAllThreads;
-    this.threads.addAll(allThreadsNormalList);
     this.threads = RxList<SmsThread>();
+    this.threads.addAll(allThreadsNormalList);
+
   }
 
 
