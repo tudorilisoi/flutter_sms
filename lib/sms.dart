@@ -5,6 +5,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:observable_ish/observable_ish.dart';
 import 'package:sms_maintained/contact.dart';
 import 'package:sms_maintained/globals.dart';
 
@@ -24,6 +25,11 @@ enum SmsMessageKind {
   Sent,
   Received,
   Draft,
+}
+
+enum SmsSort {
+  UP,
+  DOWN
 }
 
 /// A SMS Message
@@ -174,7 +180,7 @@ class SmsThread {
   int _id;
   String _address;
   Contact _contact;
-  List<SmsMessage> _messages = [];
+  RxList<SmsMessage> _messages = RxList<SmsMessage>();
 
   SmsThread(int id) : this._id = id;
 
@@ -197,6 +203,17 @@ class SmsThread {
       if (msg.threadId == _id) {
         this._messages.add(msg);
       }
+    }
+  }
+
+  sortMessages({@required SmsSort sort}) {
+    switch(sort){
+      case SmsSort.DOWN:
+        this.messages.sort((a, b) => a.date.compareTo(b.date));
+        break;
+      case SmsSort.UP:
+        this.messages.sort((a, b) => b.date.compareTo(a.date));
+        break;
     }
   }
 
@@ -230,7 +247,7 @@ class SmsThread {
   }
 
   /// Get messages from thread
-  List<SmsMessage> get messages => this._messages;
+  RxList<SmsMessage> get messages => this._messages;
 
   /// Get address
   String get address => this._address;
