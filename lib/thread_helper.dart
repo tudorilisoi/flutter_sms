@@ -36,7 +36,7 @@ class ThreadHelper {
     List<SmsThread> allThreadsNormalList = await query.getAllThreads;
     this.threads = RxList<SmsThread>();
     this.threads.addAll(allThreadsNormalList);
-
+    print('!!!!!!!!!added all threads!!!!!!!!!1');
   }
 
 
