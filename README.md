@@ -1,16 +1,16 @@
 # This project is maintained
 
-Took over from previous owner because he doesn't maintain it anymore. [github](https://github.com/babariviere/flutter_sms)
+Took over from previous owner because [the old repo](https://github.com/babariviere/flutter_sms) isn't maintained.
 
 ## Reason I took over
 
-I am making an sms app (that I will be making open source also when it is more stable) and I needed a good package for all the CRUD actions that I need to do with my messages. 
+I am making an SMS app (that will be open source when it is more stable) and I need a good package for all the CRUD actions that I need to do with my messages. 
 
 # Flutter SMS
 
-This is an SMS library for flutter.
+This is an SMS library for Flutter.
 
-It only support Android for now. iOS and MMS is not in the scope of this project.
+**It only supports Android for now.** iOS and MMS is not in the scope of this project.
 
 ## Extra
 
@@ -18,32 +18,33 @@ I have forked this repository so I can improve and add my own functionality.
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
+For help getting started with Flutter, view the online
 [documentation](https://flutter.io/).
 
 For help on editing plugin code, view the [documentation](https://flutter.io/platform-plugins/#edit-code).
 
 ## Installation and Usage
 
-Once you're familiar with Flutter you may install this package adding `sms` (0.1.4 or higher) to the dependencies list
-of the `pubspec.yaml` file as follow:
+Once you're familiar with Flutter you may install this package adding `sms_maintained` (0.2.5 or higher) to the dependencies list of the `pubspec.yaml` file as follow:
 
 ```yaml
+...
 dependencies:
   flutter:
     sdk: flutter
 
   sms_maintained: ^0.2.5
+...
 ```
 
 Then run the command `flutter packages get` on the console.
 
 ## Querying SMS messages
 
-Add the import statement for `sms` and create an instance of the *SmsQuery* class:
+Add the import statement for `sms_maintained` and create an instance of the *SmsQuery* class:
 
 ```dart
-import 'package:sms/sms.dart';
+import 'package:sms_maintained/sms.dart';
 
 void main() {
   SmsQuery query = new SmsQuery();
@@ -57,13 +58,11 @@ void main() {
 List<SmsMessage> messages = await query.getAllSms;
 ``` 
 
-**Note**: _the use of `await` keyword means that `getAllSms` is resolved asynchronously
-and a Future is retorned._
+**Note**: _the use of `await` keyword means that `getAllSms` is resolved asynchronously and a Future is retorned. To use await, you must be in a function marked `async`._
 
 ## Filtering SMS messages
 
-The method `querySms` from the `SmsQuery` class returns a list of sms depending of the supplied parameters. For example,
-for querying all the sms messages sent and received write the followed code:
+The method `querySms` from the `SmsQuery` class returns a list of filtered SMS messages that match the supplied parameters. For example, for querying all the SMS messages sent and received, you could this code:
 
 ```dart
 await query.querySms({
@@ -71,7 +70,7 @@ await query.querySms({
 });
 ```
 
-You can also query all the sms messages sent and received from a specific contact:
+You can also query all the SMS messages sent and received from a specific contact:
 
 ```dart
 await query.querySms({
@@ -91,10 +90,10 @@ List<SmsThread> threads = await query.getAllThreads;
 
 Each conversation thread is related with a Contact. 
 The class `Contact` contains all the info of a thread contact (address, photo, full name).
-To get access to `Contact` class you must import `'package:sms/contact.dart'` into your dart file:
+To get access to `Contact` class you must import `'package:sms_maintained/contact.dart'` into your dart file:
 
 ```dart
-import 'package:sms/contact.dart';
+import 'package:sms_maintained/contact.dart';
 
 void main() {
   ...
@@ -108,14 +107,14 @@ void main() {
 You can also query a contact by its address _(phone number)_:
 
 ```dart
-import 'package:sms/contact.dart';
+import 'package:sms_maintained/contact.dart';
 
 void main() {
   ContactQuery contacts = new ContactQuery();
   Contact contact = await contacts.queryContact(someAddress());
   print(contact.fullName);
 }
-String getAddress() {...}
+String getAddress() { return someRandomAddress; }
 ```
 
 ## The Contact photo
@@ -133,7 +132,7 @@ Uint8List thumbnail = contact.thumbnail.bytes;
 Some times it is useful to request basic info of the phone owner, like the contact photo, addresses, etc.
 
 ```dart
-import 'package:sms/contact.dart';
+import 'package:sms_maintained/contact.dart';
 
 UserProfileProvider provider = new UserProfileProvider();
 UserProfile profile = await provider.getUserProfile();
@@ -145,7 +144,7 @@ print(profile.fullName);
 What about sending a SMS? All you have to do is to create an instance of the `SmsSender` class:
 
 ```dart
-import 'package:sms/sms.dart';
+import 'package:sms_maintained/sms.dart';
 
 void main() {
   SmsSender sender = new SmsSender();
@@ -158,7 +157,7 @@ void main() {
 To be notified when the message is sent and/or delivered, you must add a listener to your message:
 
 ```dart
-import 'package:sms/sms.dart';
+import 'package:sms_maintained/sms.dart';
 
 void main() {
   SmsSender sender = new SmsSender();
@@ -206,7 +205,7 @@ sender.sendSMS(message, simCard: card);
 If you want to be notified for incoming new messages you must subscribe to an instance of the `SmsReceiver` class:
 
 ```dart
-import 'package:sms/sms.dart';
+import 'package:sms_maintained/sms.dart';
 
 void main() {
   SmsReceiver receiver = new SmsReceiver();
@@ -246,8 +245,7 @@ SmsRemover smsRemover = SmsRemover();
 - [ ] Add observables so you don't need to manually poll for changes.
 - [ ] ...
 
-MMS and iOS is not in the scope of this project. If someone wants to add the code and make a merge request for it,
-I am happy to include it.
+MMS and iOS is not in the scope of this project. If someone wants to add the code and make a merge request for it, I am happy to include it.
 
 If there are requests you can always make an issue. I will see what I can do.
 
@@ -259,6 +257,7 @@ If there are requests you can always make an issue. I will see what I can do.
 - geordyvc [github](https://github.com/geordyvcErasmus)
 
 ### App logo
+
 Designed and created by [Imrul kayes](https://github.com/saifulfrank)
 
 ## Contributions
